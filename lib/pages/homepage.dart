@@ -8,6 +8,8 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var userNameController = TextEditingController();
+    var passWordController = TextEditingController();
     return Scaffold(
       appBar: AppBar(
         title: Center(
@@ -15,56 +17,69 @@ class HomePage extends StatelessWidget {
           "CODED Bank App",
         )),
       ),
-      body: Column(
-        children: [
-          SizedBox(height: 50),
-          TextField(
-            decoration: InputDecoration(
-                hintText: "Username",
-                border: OutlineInputBorder(
-                    borderSide: BorderSide(color: Colors.black54))),
-          ),
-          SizedBox(height: 30),
-          TextField(
-            decoration: InputDecoration(
-                hintText: "Password",
-                border: OutlineInputBorder(
-                    borderSide: BorderSide(color: Colors.black54))),
-          ),
-          SizedBox(height: 20),
-          Container(
-            width: 100,
-            height: 47,
-            child: ElevatedButton(
-                onPressed: () {},
+      body: Center(
+        child: Column(
+          children: [
+            SizedBox(height: 50),
+            Container(
+              width: 350,
+              child: TextField(
+                  controller: userNameController,
+                  decoration: InputDecoration(
+                      hintText: "Username",
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(30),
+                          borderSide: BorderSide(
+                              color: Color.fromARGB(135, 0, 0, 0))))),
+            ),
+            SizedBox(height: 30),
+            Container(
+              width: 350,
+              child: TextField(
+                controller: passWordController,
+                decoration: InputDecoration(
+                    hintText: "Password",
+                    border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(30),
+                        borderSide: BorderSide(color: Colors.black54))),
+              ),
+            ),
+            SizedBox(height: 20),
+            Container(
+              margin: EdgeInsets.only(),
+              width: 100,
+              height: 47,
+              child: ElevatedButton(
+                  onPressed: () {},
+                  child: Text(
+                    "Login",
+                    style: TextStyle(fontSize: 20),
+                  )),
+            ),
+            SizedBox(height: 50),
+            Container(
+              child: InkWell(
+                onTap: () {},
                 child: Text(
-                  "Login",
-                  style: TextStyle(fontSize: 20),
-                )),
-          ),
-          SizedBox(height: 50),
-          Container(
-            child: InkWell(
-              onTap: () {},
-              child: Text(
-                "Forget Password?",
-                style: TextStyle(color: Colors.black54),
+                  "Forget Password?",
+                  style: TextStyle(color: Colors.black54),
+                ),
               ),
             ),
-          ),
-          SizedBox(height: 20),
-          Container(
-            child: InkWell(
-              onTap: () {
-                context.push('/signup');
-              },
-              child: Text(
-                "Sign Up!",
-                style: TextStyle(color: Colors.black54),
+            SizedBox(height: 20),
+            Container(
+              child: InkWell(
+                onTap: () {
+                  context.push('/signup');
+                },
+                child: Text(
+                  "Sign Up!",
+                  style: TextStyle(color: Colors.black54),
+                ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

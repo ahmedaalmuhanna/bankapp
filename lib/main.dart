@@ -1,10 +1,15 @@
 import 'package:bankapp/pages/homepage.dart';
 import 'package:bankapp/pages/signup.dart';
+import 'package:bankapp/providers/user_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:provider/provider.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(ChangeNotifierProvider(
+    create: (context) => UserProvider(),
+    child: MyApp(),
+  ));
 }
 
 class MyApp extends StatelessWidget {
