@@ -5,6 +5,7 @@ import 'package:bankapp/providers/user_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:go_router/go_router.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:provider/provider.dart';
 
@@ -145,6 +146,7 @@ class _SignUpState extends State<SignUp> {
                               username: myUsername,
                               password: myPassword,
                               image: _image?.path));
+                      GoRouter.of(context).go('/');
                     },
                     child: const Text("Sign Up"),
                   ),

@@ -1,9 +1,11 @@
 import 'package:bankapp/pages/homepage.dart';
 import 'package:bankapp/pages/signup.dart';
+import 'package:bankapp/pages/signin.dart';
 import 'package:bankapp/providers/user_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
+import 'package:jwt_decode/jwt_decode.dart';
 
 void main() {
   runApp(ChangeNotifierProvider(
@@ -35,6 +37,10 @@ final _router = GoRouter(routes: [
   GoRoute(
     path: '/signup',
     builder: (context, state) => SignUp(),
+  ),
+  GoRoute(
+    path: '/signin',
+    builder: (context, state) => SignIn(),
   ),
 ]);
 

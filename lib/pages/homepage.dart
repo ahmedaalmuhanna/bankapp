@@ -1,3 +1,4 @@
+import 'package:bankapp/providers/user_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -70,7 +71,11 @@ class HomePage extends StatelessWidget {
             Container(
               child: InkWell(
                 onTap: () {
-                  context.push('/signup');
+                  if (UserProvider().IsAuth == false) {
+                    context.push('/signup');
+                  } else {
+                    print('object');
+                  }
                 },
                 child: Text(
                   "Sign Up!",
