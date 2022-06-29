@@ -84,6 +84,8 @@ class _SignUpState extends State<SignUp> {
                   },
                 ),
                 SizedBox(height: 30),
+                ////////////////////
+                ////////////////////
                 Row(
                   children: [
                     GestureDetector(
@@ -127,6 +129,8 @@ class _SignUpState extends State<SignUp> {
                     )
                   ],
                 ),
+                ////////////////////
+                ////////////////////
                 Center(
                   child: ElevatedButton(
                     onPressed: () {
@@ -136,6 +140,11 @@ class _SignUpState extends State<SignUp> {
                         print(
                             "username: $myUsername\nPassword: $myPassword\nimage: ${_image?.path}");
                       }
+                      Provider.of<UserProvider>(context, listen: false).signUp(
+                          User(
+                              username: myUsername,
+                              password: myPassword,
+                              image: _image?.path));
                     },
                     child: const Text("Sign Up"),
                   ),
