@@ -134,19 +134,21 @@ class _SignUpState extends State<SignUp> {
                 ////////////////////
                 Center(
                   child: ElevatedButton(
-                    onPressed: () {
+                    onPressed: () async {
                       if (_formKey.currentState!.validate()) {
                         _formKey.currentState!.save();
 
                         print(
                             "username: $myUsername\nPassword: $myPassword\nimage: ${_image?.path}");
                       }
-                      Provider.of<UserProvider>(context, listen: false).signUp(
-                          User(
+                      var didSignUp = await Provider.of<UserProvider>(context,
+                              listen: false)
+                          .signUp(User(
                               username: myUsername,
                               password: myPassword,
                               image: _image?.path));
-                      GoRouter.of(context).go('/');
+
+                      GoRouter.of(context).go('/userhomepage');
                     },
                     child: const Text("Sign Up"),
                   ),
