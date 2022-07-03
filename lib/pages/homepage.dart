@@ -91,7 +91,9 @@ class HomePage extends StatelessWidget {
             SizedBox(height: 50),
             Container(
               child: InkWell(
-                onTap: () {},
+                onTap: () {
+                  context.push('/transectionpage');
+                },
                 child: Text(
                   "Forget Password?",
                   style: TextStyle(

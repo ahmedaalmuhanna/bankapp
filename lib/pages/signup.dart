@@ -28,6 +28,7 @@ class _SignUpState extends State<SignUp> {
 
     final _picker = ImagePicker();
     return Scaffold(
+      backgroundColor: Color(0xFFB041014),
       appBar: AppBar(
         title: Center(
             child: Text(
@@ -37,8 +38,11 @@ class _SignUpState extends State<SignUp> {
       body: Column(
         children: [
           Container(
-              margin: EdgeInsets.only(top: 30),
-              child: Text("Fill those field to Sign Up")),
+            margin: EdgeInsets.only(top: 30),
+            child: Text("Fill those field to Sign Up",
+                style: TextStyle(
+                    fontSize: 25, color: Color.fromARGB(85, 255, 255, 255))),
+          ),
           ///////////////////////////////
 
           Form(
@@ -46,43 +50,69 @@ class _SignUpState extends State<SignUp> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-                TextFormField(
-                  decoration: const InputDecoration(
-                    hintText: 'Username',
-                  ),
+                Padding(
+                  padding: const EdgeInsets.all(15),
+                  child: Container(
+                      padding: EdgeInsets.all(7),
+                      decoration: BoxDecoration(
+                        border: Border.all(color: Color(0xFFB041014), width: 1),
+                        color: Color.fromARGB(255, 3, 77, 102),
+                        borderRadius: BorderRadius.circular((15)),
+                      ),
+                      child: TextFormField(
+                        decoration: const InputDecoration(
+                          hintStyle: TextStyle(
+                              color: Color.fromARGB(255, 134, 208, 233),
+                              fontSize: 20),
+                          hintText: 'Username',
+                        ),
 
-                  // decoration: InputDecoration(
-                  //   hintText: "Username",
-                  //   border: OutlineInputBorder(
-                  //       borderRadius: BorderRadius.circular(30),
-                  //       borderSide:
-                  //           BorderSide(color: Color.fromARGB(135, 0, 0, 0)))
-                  validator: (username) {
-                    if (username!.isEmpty) {
-                      return "please fill out this field";
-                    } else {
-                      return null;
-                    }
-                  },
-                  onSaved: (username) {
-                    myUsername = username!;
-                  },
+                        // decoration: InputDecoration(
+                        //   hintText: "Username",
+                        //   border: OutlineInputBorder(
+                        //       borderRadius: BorderRadius.circular(30),
+                        //       borderSide:
+                        //           BorderSide(color: Color.fromARGB(135, 0, 0, 0)))
+                        validator: (username) {
+                          if (username!.isEmpty) {
+                            return "please fill out this field";
+                          } else {
+                            return null;
+                          }
+                        },
+                        onSaved: (username) {
+                          myUsername = username!;
+                        },
+                      )),
                 ),
                 SizedBox(height: 30),
-                TextFormField(
-                  decoration: const InputDecoration(
-                    hintText: 'Password',
-                  ),
-                  validator: (password) {
-                    if (password!.isEmpty) {
-                      return "please fill out this field";
-                    } else {
-                      return null;
-                    }
-                  },
-                  onSaved: (password) {
-                    myPassword = password!;
-                  },
+                Padding(
+                  padding: const EdgeInsets.all(15),
+                  child: Container(
+                      padding: EdgeInsets.all(7),
+                      decoration: BoxDecoration(
+                        border: Border.all(color: Color(0xFFB041014), width: 1),
+                        color: Color.fromARGB(255, 3, 77, 102),
+                        borderRadius: BorderRadius.circular((15)),
+                      ),
+                      child: TextFormField(
+                        decoration: const InputDecoration(
+                          hintStyle: TextStyle(
+                              color: Color.fromARGB(255, 134, 208, 233),
+                              fontSize: 20),
+                          hintText: 'Password',
+                        ),
+                        validator: (password) {
+                          if (password!.isEmpty) {
+                            return "please fill out this field";
+                          } else {
+                            return null;
+                          }
+                        },
+                        onSaved: (password) {
+                          myPassword = password!;
+                        },
+                      )),
                 ),
                 SizedBox(height: 30),
                 ////////////////////

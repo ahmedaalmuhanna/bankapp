@@ -32,12 +32,11 @@ class UserService {
           "image": await MultipartFile.fromFile(myUser.image!)
       });
       myResponse = await MyPath.url.post("/signup", data: myData);
-      print("test");
+
       token = myResponse.data["token"];
     } on DioError catch (error) {
       print(error);
     }
-    print("\n\n\n\n\n\n my token is \n $token \n\n\n\n\n\n");
 
     return token;
   }
@@ -55,7 +54,6 @@ class UserService {
     String token = '';
     try {
       Response myResponse;
-      FormData myData;
 
       myResponse = await MyPath.url.post("/signin", data: myUser.toJson());
       token = myResponse.data["token"];
@@ -63,6 +61,27 @@ class UserService {
       print(error);
     }
     print("my token is \n $token");
+
+    return token;
+  }
+
+  Future<String> upDate({required User myUser}) async {
+    String token = '';
+
+    try {
+      Response myResponse;
+      FormData myData;
+      print(token);
+      myData = FormData.fromMap({
+        "username": myUser.username,
+        "password": myUser.password,
+      });
+      myResponse = await MyPath.url.put("/deposit", data: myData);
+
+      token = myResponse.data["token"];
+    } on DioError catch (error) {
+      print(error);
+    }
 
     return token;
   }

@@ -1,5 +1,7 @@
+import 'package:bankapp/pages/editpage.dart';
 import 'package:bankapp/pages/homepage.dart';
 import 'package:bankapp/pages/signup.dart';
+import 'package:bankapp/pages/transectionpage.dart';
 import 'package:bankapp/pages/user_home_page.dart';
 
 import 'package:bankapp/providers/user_provider.dart';
@@ -43,6 +45,11 @@ final _router = GoRouter(routes: [
     path: '/userhomepage',
     builder: (context, state) => UserHomePage(),
   ),
+  GoRoute(
+    path: '/editpage',
+    builder: (context, state) => EditPage(),
+  ),
+  GoRoute(path: '/transectiopage', builder: (context, state) => TranPage()),
 ]);
 
       //   drawer: Drawer(

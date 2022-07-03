@@ -4,6 +4,7 @@ import 'package:bankapp/models/user.dart';
 import 'package:bankapp/services/backendpath.dart';
 import 'package:bankapp/services/user_service.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:jwt_decode/jwt_decode.dart';
 
 class UserProvider extends ChangeNotifier {
@@ -35,6 +36,22 @@ class UserProvider extends ChangeNotifier {
           "\n\n\n///////////////////////////\n  ${Jwt.parseJwt(token)} \n\n\n///////////////////////////\n}");
 
       print("token is in provider: \n ${token}");
+      notifyListeners();
+      MyPath.url.options.headers[HttpHeaders.authorizationHeader] =
+          "Bearer $token"; // configiring Authorization header.
+      return token.isNotEmpty;
+    } catch (error) {
+      print(error);
+      return false;
+    }
+  }
+
+  Future<bool> upDate(User myUser) async {
+    print(
+        "\n\n\n///////////////////////////\n  ${Jwt.parseJwt(token)} \n\n\n///////////////////////////\n}");
+    try {
+      token = await UserService().upDate(myUser: myUser);
+      user = User.fromMap(Jwt.parseJwt(token)); // decode the user
       notifyListeners();
       MyPath.url.options.headers[HttpHeaders.authorizationHeader] =
           "Bearer $token"; // configiring Authorization header.

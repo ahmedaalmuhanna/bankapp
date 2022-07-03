@@ -6,7 +6,7 @@ class User {
   String? password;
   String? image;
   int? balance;
-  User({required this.username, this.password, this.image, this.balance});
+  User({required this.username, this.password, this.image, this.balance = 0});
 
   Map<String, dynamic> toMap() {
     return <String, dynamic>{
